@@ -1,6 +1,6 @@
 # MYSQLTest
-
-```mysql> INSERT INTO Movies (Title, Runtime, Genre, IMDB_Score, Rating)VALUES
+```sql
+mysql> INSERT INTO Movies (Title, Runtime, Genre, IMDB_Score, Rating)VALUES
     ->   ('The Matrix', 136, 'Sci-Fi', 8.7, 'R'),
     -> ('Toy Story', 81, 'Animation', 8.3, 'G');
 Query OK, 2 rows affected (0.01 sec)
