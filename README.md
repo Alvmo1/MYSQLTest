@@ -83,8 +83,6 @@ mysql> select * from Movies;
 +-------------------+---------+-------------+------------+--------+
 8 rows in set (0.00 sec)
 
-mysql> SELECT MovieID, Rating FROM Movies WHERE Genre IN ('Horror', 'Documentary');
-ERROR 1054 (42S22): Unknown column 'MovieID' in 'field list'
 mysql> ALTER TABLE Movies ADD COLUMN Id INT AUTO_INCREMENT PRIMARY KEY FIRST;
 Query OK, 0 rows affected (0.08 sec)
 Records: 0  Duplicates: 0  Warnings: 0
@@ -109,8 +107,6 @@ mysql> SELECT Rating, AVG(IMDB_Score) AS AvgScore, MAX(IMDB_Score) AS MaxScore, 
 +--------+----------+----------+----------+
 4 rows in set (0.00 sec)
 
-mysql> SELECT Rating, AVG(IMDB_Score) AS AvgScore, MAX(IMDB_Score) AS MaxScore, MIN(IMDB_Score) AS MinScoreFROM MoviesGROUP BY RatingHAVING COUNT(*) > 1;
-ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'MoviesGROUP BY RatingHAVING COUNT(*) > 1' at line 1
 mysql> SELECT Rating, AVG(IMDB_Score) AS AvgScore, MAX(IMDB_Score) AS MaxScore, MIN(IMDB_Score) AS MinScore FROM Movies GROUP BY Rating HAVING COUNT(*) > 1;
 +--------+----------+----------+----------+
 | Rating | AvgScore | MaxScore | MinScore |
@@ -135,3 +131,9 @@ mysql> select * from Movies;
 |  8 | Toy Story       |      81 | Animation |        8.3 | G      |
 +----+-----------------+---------+-----------+------------+--------+
 5 rows in set (0.00 sec)
+
+mysql> DROP TABLE Movies;
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> DROP DATABASE MOVIES_DB1;
+Query OK, 0 rows affected (0.02 sec)
